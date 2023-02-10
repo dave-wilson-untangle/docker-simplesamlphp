@@ -8,11 +8,13 @@ $config = array(
     'example-userpass' => array(
         'exampleauth:UserPass',
         'user1:password' => array(
-            'email' => 'user1@example.com',
+            'email' => 'dwilson@arista.com',
         ),
-        'user2:password' => array(
-            'email' => 'user2@example.com',
+        'dwilson:password' => [
+            'email' => 'dwilson@arista.com',
+        ],
+        'rsanchez:password' => array(
+            'email' => 'rsanchez@samltest.id',
         ),
     ),
-
 );

@@ -6,10 +6,14 @@ services:
       args:
         SIMPLESAMLPHP_VERSION: "1.19.7"
     environment:
-      SIMPLESAMLPHP_SP_ENTITY_ID: http://app.example.com
-      SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE: http://localhost/simplesaml/module.php/saml/sp/saml2-acs.php/test-sp
+      SIMPLESAMLPHP_SP_ENTITY_ID: https://local-launchpad.edge.arista.com:447/saml/sp/f716e407816a4c0d92bfa0004c573257
+      SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE: https://local-launchpad.edge.arista.com:447/saml/sp/acs/f716e407816a4c0d92bfa0004c573257
       SIMPLESAMLPHP_SP_SINGLE_LOGOUT_SERVICE: http://localhost/simplesaml/module.php/saml/sp/saml2-logout.php/test-sp
       SIMPLESAMLPHP_IDP_ADMIN_PASSWORD:
       SIMPLESAMLPHP_IDP_SECRET_SALT:
+      SIMPLESAMLPHP_IDP_SESSION_DURATION_SECONDS: 60
     ports:
       - "8080:8080"
+    volumes:
+      - ./config/simplesamlphp/authsources.php:/var/www/simplesamlphp/config/authsources.php
+      - ./config/simplesamlphp/config.php:/var/www/simplesamlphp/config/config.php
